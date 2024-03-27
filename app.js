@@ -13,7 +13,7 @@ let email = document.getElementById("email");
 let phnum = document.getElementById("phnum");
 let address = document.getElementById("address");
 let about = document.getElementById("about");
-var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
+// var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
 
 
 // let details = {
@@ -43,7 +43,7 @@ else{
    window.location.href = "./details.html";
 }
 }
-function Next3(){
+function sendEmail(){
      if (email.value === "" || phnum.value === "" || address === ""){
         alert("Please fill missing fields");
      }
@@ -84,20 +84,20 @@ noTwo.addEventListener("click" , function(){
         console.log(false)
     }
 });
-function sendEmail() {
-    Email.send({
-      Host: "smtp.gmail.com",
-      Username: "abdulfatir3489@gmail.com",
-      Password: "1122334455AF@",
-      To: 'ammarali02062003@tgmail.com',
-      From: email.value,
-      Subject: "New Game Enquiry",
-      Body: "Email" + email.value + "Phone Num"
-        + phnum.value + "Address" + address.value
-  }).then(
-        message => alert(message)
-      );
-  }
+// function sendEmail() {
+//     Email.send({
+//       Host: "smtp.gmail.com",
+//       Username: "abdulfatir3489@gmail.com",
+//       Password: "1122334455AF@",
+//       To: 'ammarali02062003@tgmail.com',
+//       From: email.value,
+//       Subject: "New Game Enquiry",
+//       Body: "Email" + email.value + "Phone Num"
+//         + phnum.value + "Address" + address.value
+//   }).then(
+//         message => alert(message)
+//       );
+//   }
 
 
 
